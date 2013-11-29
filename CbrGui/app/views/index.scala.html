@@ -35,13 +35,34 @@
         <input type="text" id="d_time" pattern="[0-9]+\.?[0-9]*" class="form-control" title="Используйте только цифры, точку" required="required">
     </div>
     <div class="form-group">
-        <input type="submit" class="btn btn-primary" value="Запрос">
+        <input type="submit" class="btn btn-primary" value="Запрос" id="submit">
     </div>
 </form>
 
 <div>
     <h3>Рекомендации:</h3>
-    <p id="result"></p>
+    <div id="result"></div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        $('#submit').click(function(){
+			$.ajax({
+				url: '/cbr/',
+				data: 'qwe'
+			}).done(function(data){
+				var result_div = $('#result');
+				result_div.contents().each(function () {
+					//Text node
+					if (this.nodeType === 3) {
+						$(this).remove();
+					}
+				});
+				result_div.append(data.result);
+			});
+            return false;
+        });
+    });
+</script>
 
 }
