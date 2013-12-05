@@ -1,0 +1,9 @@
+@(results : List[String])
+
+<div class="alert alert-success">
+    <ul>
+        @for(item <- results) {
+            <li>@item</li>
+        }
+    </ul>
+</div>
