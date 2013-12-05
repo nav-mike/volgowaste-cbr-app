@@ -58,7 +58,7 @@
      * @@param data Значения рекомендаций.
      */
     CbrResultView.resultAction.subscribe(function(data){
-        cbrValue = data;
+        resultValue = data;
     });
 
     ko.applyBindings(CbrResultView);
@@ -67,10 +67,10 @@
 <script>
     $(document).ready(function(){
         $('#submit').click(function(){
-            $.ajax(
+            $.ajax({
                 url: '/request/',
                 dataType: 'html'
-            ).done(function(data){
+            }).done(function(data){
 
                 alert('CBR цикл завершен');
 

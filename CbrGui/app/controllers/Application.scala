@@ -11,6 +11,16 @@ object Application extends Controller {
   }
 
   /**
+   * Метод вывода результата CBR.
+   * @return Страница - результат CBR.
+   */
+  def getCbrResult = Action {
+    val cbr = readResultFile
+
+    Ok(views.html._result(cbr))
+  }
+
+  /**
    * Метод чтения результирующего файла.
    * @return Список результатов CBR.
    */
