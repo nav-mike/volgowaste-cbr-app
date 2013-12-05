@@ -40,26 +40,33 @@
 </form>
 
 <div>
-    <h3>Рекомендации:</h3>
-    <div id="result"></div>
+    <div id="result" data-bind="with: resultAction">
+        <h3>Рекомендации:</h3>
+        <span data-bind="html: resultValue"></span>
+    </div>
 </div>
+
+<script>
+    /** Модель формирования ответа. */
+    var CbrResultView = {
+        resultValue: ko.observable(),
+        resultAction: ko.observable()
+    };
+
+    /**
+     * Метод вывода значений рекомендаций.
+     * @@param data Значения рекомендаций.
+     */
+    CbrResultView.resultAction.subscribe(function(data){
+        cbrValue = data;
+    });
+
+    ko.applyBindings(CbrResultView);
+</script>
 
 <script>
     $(document).ready(function(){
         $('#submit').click(function(){
-			$.ajax({
-				url: '/cbr/',
-				data: 'qwe'
-			}).done(function(data){
-				var result_div = $('#result');
-				result_div.contents().each(function () {
-					//Text node
-					if (this.nodeType === 3) {
-						$(this).remove();
-					}
-				});
-				result_div.append(data.result);
-			});
             return false;
         });
     });
