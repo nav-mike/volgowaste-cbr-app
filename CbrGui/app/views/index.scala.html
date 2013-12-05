@@ -67,6 +67,16 @@
 <script>
     $(document).ready(function(){
         $('#submit').click(function(){
+            $.ajax(
+                url: '/request/',
+                dataType: 'html'
+            ).done(function(data){
+
+                alert('CBR цикл завершен');
+
+                CbrResultView.resultAction(data);
+            });
+
             return false;
         });
     });
