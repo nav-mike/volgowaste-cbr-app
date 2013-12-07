@@ -13,5 +13,13 @@ public class DangerClassResult {
     
     /** Идентификатор класса опасности. */
     private String id;
+
+    /**
+     * Конструктор по умолчанию.
+     */
+    public DangerClassResult() {
+        this.id = "";
+        this.value = "";
+    }
     
 }
