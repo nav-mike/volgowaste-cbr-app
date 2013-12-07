@@ -1,6 +1,8 @@
 package owlreader;
 
 import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.OntModelSpec;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
 
 /**
  * Класс чтения классов опасности отходов.
@@ -23,5 +25,13 @@ public class DangerClassReader {
     
     /** Имя файла с онтологией. */
     private final String filename = "VolgoWaste.owl";
+    
+    /**
+     * Конструктор по умолчанию.
+     */
+    public DangerClassReader() {
+        this.owlModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
+        this.owlModel.read(this.filename, "RDF/XML-ABBREV");
+    }
     
 }
