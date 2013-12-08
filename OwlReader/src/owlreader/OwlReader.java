@@ -19,9 +19,9 @@ public class OwlReader {
         
         ArrayList arrayList = dcr.execQuery();
         
-        for (Object item : arrayList) {
-            System.out.println(item);
-        }
+        DangerClassResultArray dcra = new DangerClassResultArray(arrayList);
+        
+        System.out.println(dcra.toString());
     }
     
 }

@@ -1,5 +1,6 @@
 package owlreader;
 
+import com.google.gson.Gson;
 import java.util.ArrayList;
 
 /**
@@ -31,6 +32,18 @@ public class DangerClassResultArray {
         for (String item : strings) {
             this.array.add(new DangerClassResult(item));
         }
+    }
+
+    /**
+     * Метод преобразования списка в json строку.
+     * @return json строка.
+     */
+    @Override
+    public String toString() {
+        
+        Gson gson = new Gson();
+        
+        return gson.toJson(this.array);
     }
     
 }
