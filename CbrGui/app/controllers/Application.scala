@@ -13,7 +13,7 @@ object Application extends Controller {
 
     array.readFile("dclass_result.json")
 
-    Ok(views.html.index("Your new application is ready."))
+    Ok(views.html.index("Your new application is ready.", array.getList))
   }
 
   /**
