@@ -55,7 +55,7 @@ public class DangerClassReader {
         
         while (results.hasNext()) {
             QuerySolution solution = results.nextSolution();
-            RDFNode x = solution.get("object");
+            RDFNode x = solution.get("subject");
             String name = x.toString();
             
             result.add(name);
