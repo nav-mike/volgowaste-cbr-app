@@ -32,5 +32,37 @@ public class DangerClassResult {
         this.id = owlUri;
         this.value = owlUri.substring(0, owlUri.indexOf("#"));
     }
+
+    /**
+     * Метод установки значения.
+     * @param value Значение.
+     */
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    /**
+     * Метод установки значения идентификатора.
+     * @param id Значение индентифкатора.
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    /**
+     * Метод получения значения.
+     * @return Значение.
+     */
+    public String getValue() {
+        return value;
+    }
+
+    /**
+     * Метод получения идентификатора.
+     * @return Идентификатор.
+     */
+    public String getId() {
+        return id;
+    }
     
 }
