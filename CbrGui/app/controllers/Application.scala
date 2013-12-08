@@ -3,10 +3,16 @@ package controllers
 import play.api._
 import play.api.mvc._
 import scala.io.Source
+import models._
 
 object Application extends Controller {
 
   def index = Action {
+
+    val array = new DangerClassArray
+
+    array.readFile("dclass_result.json")
+
     Ok(views.html.index("Your new application is ready."))
   }
 
