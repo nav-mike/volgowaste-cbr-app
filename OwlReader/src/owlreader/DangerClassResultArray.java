@@ -12,5 +12,12 @@ public class DangerClassResultArray {
     /* Поля класса. */
     /** Список классов опасности из онтологии. */
     private ArrayList<DangerClassResult> array;
+
+    /**
+     * Конструктор по умолчанию.
+     */
+    public DangerClassResultArray() {
+        this.array = new ArrayList<>();
+    }
     
 }
