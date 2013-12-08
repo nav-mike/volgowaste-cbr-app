@@ -30,7 +30,7 @@ public class DangerClassResult {
     public DangerClassResult (String owlUri) {
         
         this.id = owlUri;
-        this.value = owlUri.substring(0, owlUri.indexOf("#"));
+        this.value = owlUri.substring(owlUri.indexOf("#") + 1, owlUri.length());
     }
 
     /**
