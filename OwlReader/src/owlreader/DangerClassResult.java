@@ -22,4 +22,15 @@ public class DangerClassResult {
         this.value = "";
     }
     
+    /**
+     * Конструктор с параметром.
+     * Создает результат на основе строки с uri.
+     * @param owlUri uri из онтологии.
+     */
+    public DangerClassResult (String owlUri) {
+        
+        this.id = owlUri;
+        this.value = owlUri.substring(0, owlUri.indexOf("#"));
+    }
+    
 }
