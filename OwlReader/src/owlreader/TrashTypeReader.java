@@ -22,7 +22,11 @@ public class TrashTypeReader {
     /* Поля класса. */
     
     /** SPARQL запрос на получение списка отходов из owl. */
-    private final String request = "SELECT ?entity\n" +
+    private final String request = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+                                    "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n" +
+                                    "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
+                                    "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
+                                    "SELECT ?entity\n" +
                                             "WHERE {\n" +
                                             "  ?entity a ?type.\n" +
                                             "  ?type rdfs:subClassOf* <http://VolgoWaste.owl#Отход>.\n" +
