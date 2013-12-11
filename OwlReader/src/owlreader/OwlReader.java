@@ -27,6 +27,14 @@ public class OwlReader {
         DangerClassResultArray dcra = new DangerClassResultArray(arrayList);
         
         writeDangerClassesToFile(dcra, "dclass_result.json");
+        
+        TrashTypeReader ttr = new TrashTypeReader();
+        
+        ArrayList list = ttr.execQuery();
+        
+        TrashTypeResultArray ttra = new TrashTypeResultArray(list);
+        
+        writeDangerClassesToFile(ttra, "ttype_result.json");
     }
     
     /**
