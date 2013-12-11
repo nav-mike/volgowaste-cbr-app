@@ -13,7 +13,7 @@ object Application extends Controller {
 
     array.readFile("dclass_result.json")
 
-    Ok(views.html.index("Your new application is ready.", array.getList))
+    Ok(views.html.index("Your new application is ready.", array.getList, getAggregateState))
   }
 
   /**
@@ -32,6 +32,20 @@ object Application extends Controller {
    */
   def readResultFile : List[String] = {
     val result = Source.fromFile("result.txt").getLines().toList
+
+    result
+  }
+
+  /**
+   * Метод формирование списка агрегатных состояний.
+   * @return Список агрегатных состояний.
+   */
+  def getAggregateState : List[String] = {
+    var result = List[String]()
+
+    result = "Твердое" :: result
+    result = "Жидкое" :: result
+    result = "Газообразное" :: result
 
     result
   }
