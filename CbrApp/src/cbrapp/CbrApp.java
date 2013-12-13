@@ -26,10 +26,12 @@ public class CbrApp {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println(args[0]);
-        CbrApplication app = new CbrApplication();
-        String cbrResult = cbr(args[0]);
-        writeResult(cbrResult);
+        
+        JenaReader.getDangerClass("IV_класс");
+        
+//        CbrApplication app = new CbrApplication();
+//        String cbrResult = cbr(args);
+//        writeResult(cbrResult);
     }
     
     /**
@@ -51,7 +53,7 @@ public class CbrApp {
      * @param value Значение, введенное пользователем.
      * @return Результат CBR анализа.
      */
-    private static String cbr (String value) {
+    private static String cbr (String[] values) {
         try {
             String result = "";
             CbrApplication app = new CbrApplication();
