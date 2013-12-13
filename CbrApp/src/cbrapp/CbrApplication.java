@@ -105,7 +105,7 @@ public class CbrApplication implements StandardCBRApplication{
         
         eval = NNScoringMethod.evaluateSimilarity(caseBase.getCases(), query, config);
         
-        selectedCase = SelectCases.selectTopK(eval, 3);
+        selectedCase = SelectCases.selectTopK(eval, 1);
         
         System.out.println("========================");
         for (CBRCase c: selectedCase) {
@@ -133,22 +133,22 @@ public class CbrApplication implements StandardCBRApplication{
         
         // danger
         attribute = new Attribute("danger", CbrDescription.class);
-        result.addMapping(attribute, new Equal());
+        result.addMapping(attribute, new OntDeepBasic());
         result.setWeight(attribute, weight);
         
         // count
         attribute = new Attribute("count", CbrDescription.class);
-        result.addMapping(attribute, new EnumDistance());
+        result.addMapping(attribute, new OntDeepBasic());
         result.setWeight(attribute, weight);
         
         // state
         attribute = new Attribute("state", CbrDescription.class);
-        result.addMapping(attribute, new EqualsStringIgnoreCase());
+        result.addMapping(attribute, new OntDeepBasic());
         result.setWeight(attribute, weight);
 
         // time
         attribute = new Attribute("time", CbrDescription.class);
-        result.addMapping(attribute, new EnumDistance());
+        result.addMapping(attribute, new OntDeepBasic());
         result.setWeight(attribute, weight);
         
         // type

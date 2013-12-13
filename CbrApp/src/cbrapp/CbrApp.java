@@ -57,15 +57,22 @@ public class CbrApp {
             CbrApplication app = new CbrApplication();
             app.configure();
             app.preCycle();
+            
             CbrDescription description = new CbrDescription();
+            description.setCount(new Instance("tt_1"));
+            description.setDanger(new Instance("I_class"));
+            description.setState(new Instance("as_1"));
+            description.setTime(new Instance("fdt_1"));
+            description.setTypes(new Instance("Журналы"));
+            
             CBRQuery query = new CBRQuery();
             query.setDescription(description);
             app.cycle(query);
             CBRCase c = app.result();
-            CbrDescription cd = (CbrDescription) c.getDescription();
-            return result;
+            CbrSolution cd = (CbrSolution) c.getSolution();
+            return result = cd.toString();
             
-        } catch (ExecutionException ex) {
+        } catch (ExecutionException | OntologyAccessException ex) {
             Logger.getLogger(CbrApp.class.getName()).log(Level.SEVERE, null, ex);
         }
         return "";
