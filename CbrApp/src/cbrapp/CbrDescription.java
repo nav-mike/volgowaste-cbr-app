@@ -1,6 +1,7 @@
 
 package cbrapp;
 
+import com.google.gson.Gson;
 import jcolibri.cbrcore.Attribute;
 import jcolibri.cbrcore.CaseComponent;
 import jcolibri.datatypes.Instance;
@@ -12,12 +13,98 @@ import jcolibri.datatypes.Instance;
 public class CbrDescription implements CaseComponent {
     
     /* Поля класса. */
-    /** Параметры прецедента. */
-    private Instance params;
-    /** Результат анализа. */
-    private Instance result;
+    /** Класс опасности. */
+    private Instance danger;
+    /** Количество отходов. */
+    private Instance count;
+    /** Агрегатное состояние. */
+    private Instance state;
+    /** Время полного разложения. */
+    private Instance time;
+    /** Тип отходов. */
+    private Instance types;
     /** Главный консепт. */
     private Instance mainConcept;
+
+    /**
+     * Метод изменения значения типа отходов.
+     * @param types Значение типа отходов.
+     */
+    public void setTypes(Instance types) {
+        this.types = types;
+    }
+
+    /**
+     * Метод изменения значения полного времени разложения.
+     * @param time Значение полного времени разложения.
+     */
+    public void setTime(Instance time) {
+        this.time = time;
+    }
+
+    /**
+     * Метод изменения значения агрегатного состояния.
+     * @param state Значение агрегатного состояния.
+     */
+    public void setState(Instance state) {
+        this.state = state;
+    }
+
+    /**
+     * Метод изменения значения класса опасности.
+     * @param danger Значение класса опасности.
+     */
+    public void setDanger(Instance danger) {
+        this.danger = danger;
+    }
+
+    /**
+     * Метод изменения значения количества отходов.
+     * @param count Значение количества отходов.
+     */
+    public void setCount(Instance count) {
+        this.count = count;
+    }
+
+    /**
+     * Метод получения значения типа отходов.
+     * @return Значение типа отходов.
+     */
+    public Instance getTypes() {
+        return types;
+    }
+
+    /**
+     * Метод получения значения времени разложения.
+     * @return Значение времени разложения.
+     */
+    public Instance getTime() {
+        return time;
+    }
+
+    /**
+     * Метод получения значения агрегатного состояния.
+     * @return Значение агрегатного состояния.
+     */
+    public Instance getState() {
+        return state;
+    }
+
+    /**
+     * Метод получения значения класса опасности.
+     * @return Значение класса опасности.
+     */
+    public Instance getDanger() {
+        return danger;
+    }
+
+    /**
+     * Метод получения количества отходов.
+     * @return Значение количества отходов.
+     */
+    public Instance getCount() {
+        return count;
+    }
 
     /**
      * Метод изменения главного концепта.
@@ -41,39 +128,8 @@ public class CbrDescription implements CaseComponent {
      */
     @Override
     public String toString() {
-        return "[" + mainConcept + ":" + this.params + ";" + this.result + "]";
-    }
-
-    /**
-     * Метод изменения значения результата цикла.
-     * @param result Значение результата цикла.
-     */
-    public void setResult(Instance result) {
-        this.result = result;
-    }
-
-    /**
-     * Метод изменения значения параметров прецедента.
-     * @param params Значение параметров прецедента.
-     */
-    public void setParams(Instance params) {
-        this.params = params;
-    }
-
-    /**
-     * Метод получения значения результатов цикла.
-     * @return Значение результатов цикла.
-     */
-    public Instance getResult() {
-        return result;
-    }
-
-    /**
-     * Метод получения значения параметров прецедента.
-     * @return Значение параметров прецедента.
-     */
-    public Instance getParams() {
-        return params;
+        Gson gson = new Gson();
+        return gson.toJson(this);
     }
 
     /**

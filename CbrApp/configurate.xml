@@ -46,7 +46,7 @@
         <Map>
             <Property>solution</Property>
             <Concept>Solutions</Concept>
-            <Attribute>solution</Attribute>
+            <Attribute>result</Attribute>
         </Map>
     </SolutionMappings>
 </OntologyConfiguration>
