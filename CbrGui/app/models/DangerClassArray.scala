@@ -37,6 +37,7 @@ class DangerClassArray() {
     val result = gson.fromJson[ju.ArrayList[DangerClassItem]](strings(0), resultType).asScala
 
     this.array = result.toList
+
   }
 
 }

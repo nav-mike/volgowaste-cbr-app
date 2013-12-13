@@ -1,8 +1,12 @@
 package owlreader;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -77,11 +81,13 @@ public class OwlReader {
         try {
             File file = new File(filename);
             
-            FileWriter writer = new FileWriter(file);
+            Writer out = new BufferedWriter(new OutputStreamWriter(
+			new FileOutputStream(filename), "UTF8"));
             
-            writer.write(array.toString());
+            out.append(array.toString());
+            out.flush();
+            out.close();
             
-            writer.close();
         } catch (IOException ex) {
             Logger.getLogger(OwlReader.class.getName()).log(Level.SEVERE, null, ex);
         }

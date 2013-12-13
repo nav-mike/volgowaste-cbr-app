@@ -10,6 +10,8 @@ object Application extends Controller {
 
   def index = Action {
 
+    getDangerType
+
     val array = new DangerClassArray
 
     array.readFile("dclass_result.json")
@@ -53,11 +55,24 @@ object Application extends Controller {
 
   /**
    * Метод записи .bat файла для читалки owl.
-   * @param value Содержимое bat файла.
+   * @param arg Содержимое bat файла.
    */
-  def writeBatFile (value : String) = {
+  def writeBatFile (arg : String) = {
 
-    Path("run.bat").toFile.writeAll(value)
+    Path("run.bat").toFile.writeAll("java -jar OwlReader.jar " + arg)
+  }
+
+  /**
+   * Метод вызова читалки owl для получения классов опасности.
+   */
+  def getDangerType = {
+
+    writeBatFile("-dc")
+
+    val builder = new ProcessBuilder("run.bat")
+    builder.redirectErrorStream(true)
+
+    val process = builder.start()
   }
 
 }
