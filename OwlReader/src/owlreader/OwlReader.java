@@ -20,13 +20,7 @@ public class OwlReader {
      */
     public static void main(String[] args) {
         // TODO текст приложения
-        TrashTypeReader ttr = new TrashTypeReader();
-        
-        ArrayList list = ttr.execQuery();
-        
-        TrashTypeResultArray ttra = new TrashTypeResultArray(list);
-        
-        writeDangerClassesToFile(ttra, "ttype_result.json");
+        parseArgs(args);
     }
     
     /**
@@ -41,7 +35,8 @@ public class OwlReader {
         if (args[0].equals("-dc"))
             readDangerClasses();
         
-        if (args[0].equals("-tt"));
+        if (args[0].equals("-tt"))
+            readTrashTypes();
     }
     
     /**
@@ -56,6 +51,20 @@ public class OwlReader {
         DangerClassResultArray dcra = new DangerClassResultArray(arrayList);
         
         writeDangerClassesToFile(dcra, "dclass_result.json");
+    }
+    
+    /**
+     * Метод чтения типов отходов из owl.
+     */
+    private static void readTrashTypes() {
+        
+        TrashTypeReader ttr = new TrashTypeReader();
+        
+        ArrayList list = ttr.execQuery();
+        
+        TrashTypeResultArray ttra = new TrashTypeResultArray(list);
+        
+        writeDangerClassesToFile(ttra, "ttype_result.json");
     }
     
     /**
