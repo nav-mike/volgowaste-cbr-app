@@ -4,6 +4,7 @@ import play.api._
 import play.api.mvc._
 import scala.io.Source
 import models._
+import scala.reflect.io.Path
 
 object Application extends Controller {
 
@@ -48,6 +49,15 @@ object Application extends Controller {
     result = "Газообразное" :: result
 
     result
+  }
+
+  /**
+   * Метод записи .bat файла для читалки owl.
+   * @param value Содержимое bat файла.
+   */
+  def writeBatFile (value : String) = {
+
+    Path("run.bat").toFile.writeAll(value)
   }
 
 }
