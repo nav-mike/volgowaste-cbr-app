@@ -54,29 +54,18 @@ public class CbrApp {
     private static String cbr (String value) {
         try {
             String result = "";
-            
             CbrApplication app = new CbrApplication();
-            
             app.configure();
             app.preCycle();
-            
             CbrDescription description = new CbrDescription();
-            description.setParams(new Instance("Params_Input"));
-            description.setResult(new Instance("Result_1"));
-            
             CBRQuery query = new CBRQuery();
             query.setDescription(description);
-            
             app.cycle(query);
-            
             CBRCase c = app.result();
-            
             CbrDescription cd = (CbrDescription) c.getDescription();
-            
-            result = cd.getResult().toString();
-            
             return result;
-        } catch (ExecutionException | OntologyAccessException ex) {
+            
+        } catch (ExecutionException ex) {
             Logger.getLogger(CbrApp.class.getName()).log(Level.SEVERE, null, ex);
         }
         return "";
