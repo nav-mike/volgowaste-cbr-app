@@ -15,7 +15,10 @@ import jcolibri.method.retrieve.NNretrieval.NNConfig;
 import jcolibri.method.retrieve.NNretrieval.NNScoringMethod;
 import jcolibri.method.retrieve.NNretrieval.similarity.LocalSimilarityFunction;
 import jcolibri.method.retrieve.NNretrieval.similarity.global.Average;
+import jcolibri.method.retrieve.NNretrieval.similarity.local.EnumDistance;
 import jcolibri.method.retrieve.NNretrieval.similarity.local.Equal;
+import jcolibri.method.retrieve.NNretrieval.similarity.local.EqualsStringIgnoreCase;
+import jcolibri.method.retrieve.NNretrieval.similarity.local.ontology.OntDeepBasic;
 import jcolibri.method.retrieve.RetrievalResult;
 import jcolibri.method.retrieve.selection.SelectCases;
 import jcolibri.util.FileIO;
@@ -126,12 +129,32 @@ public class CbrApplication implements StandardCBRApplication{
     private static NNConfig getSimilarityConfig() {
         NNConfig result = new NNConfig();
         Attribute attribute;
-        LocalSimilarityFunction function = new Equal();
+        Double weight = new Double(1.0);
         
-        // params
-        attribute = new Attribute("params", CbrDescription.class);
-        result.addMapping(attribute, function);
-        result.setWeight(attribute, new Double(1.0));
+        // danger
+        attribute = new Attribute("danger", CbrDescription.class);
+        result.addMapping(attribute, new Equal());
+        result.setWeight(attribute, weight);
+        
+        // count
+        attribute = new Attribute("count", CbrDescription.class);
+        result.addMapping(attribute, new EnumDistance());
+        result.setWeight(attribute, weight);
+        
+        // state
+        attribute = new Attribute("state", CbrDescription.class);
+        result.addMapping(attribute, new EqualsStringIgnoreCase());
+        result.setWeight(attribute, weight);
+
+        // time
+        attribute = new Attribute("time", CbrDescription.class);
+        result.addMapping(attribute, new EnumDistance());
+        result.setWeight(attribute, weight);
+        
+        // type
+        attribute = new Attribute("types", CbrDescription.class);
+        result.addMapping(attribute, new OntDeepBasic());
+        result.setWeight(attribute, weight);
         
         return result;
     }
