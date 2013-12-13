@@ -38,6 +38,20 @@ public class OwlReader {
     }
     
     /**
+     * Метод парсинга параметров командной строки.
+     * @param args Параметры командной строки.
+     */
+    private void parseArgs (String[] args) {
+        
+        if (args.length != 1)
+            System.exit(1);
+        
+        if (args[0].equals("-dc"));
+        
+        if (args[0].equals("-tt"));
+    }
+    
+    /**
      * Метод записи списка классов опасности в файл.
      * @param array Список классов опасности.
      * @param filename Имя файла.
