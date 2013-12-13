@@ -1,6 +1,7 @@
 
 package cbrapp;
 
+import com.google.gson.Gson;
 import jcolibri.cbrcore.Attribute;
 import jcolibri.cbrcore.CaseComponent;
 import jcolibri.datatypes.Instance;
@@ -23,7 +24,8 @@ public class CbrSolution implements CaseComponent {
      */
     @Override
     public String toString() {
-        return "{" + mainConcept + ":" + this.result + "}";
+        Gson gson = new Gson();
+        return gson.toJson(this);
     }
 
     /**
