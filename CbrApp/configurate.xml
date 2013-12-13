@@ -1,7 +1,8 @@
 <OntologyConfiguration>
+	<!-- Описание онтологии. -->
     <MainOntology>
-        <URL>http://www.owl-ontologies.com/Ontology1383208694.owl</URL>
-        <LocalCopy>simple_cbr.owl</LocalCopy>
+        <URL>http://VolgoWaste.owl</URL>
+        <LocalCopy>VolgoWasteExt.owl</LocalCopy>
     </MainOntology>
 
     <CaseMainConcept>Case</CaseMainConcept>
@@ -9,23 +10,43 @@
     <DescriptionClassName>cbrapp.CbrDescription</DescriptionClassName>
 
     <DescriptionMappings>
-        <Map>
-            <Property>case_has_params</Property>
-            <Concept>Params</Concept>
-            <Attribute>params</Attribute>
-        </Map>
+		<!-- Описание класса опасности. -->
 		<Map>
-            <Property>case_has_result</Property>
-            <Concept>Result</Concept>
-            <Attribute>result</Attribute>
-        </Map>
+			<Property>class</Property>			<!-- Свойство case в онтологии -->
+			<Concept>Класс_опасности</Concept>	<!-- Тип свойства в онтологии  -->
+			<Attribute>danger</Attribute>		<!-- Поле в java классе        -->
+		</Map>
+		<!-- Описание количества отходов. -->
+		<Map>
+			<Property>count</Property>
+			<Concept>TrashCount</Concept>
+			<Attribute>count</Attribute>
+		</Map>
+		<!-- Описание агрегатного состояния. -->
+		<Map>
+			<Property>state</Property>
+			<Concept>AggregateState</Concept>
+			<Attribute>state</Attribute>
+		</Map>
+		<!-- Описание времени разложения. -->
+		<Map>
+			<Property>time</Property>
+			<Concept>FullDestroyTime</Concept>
+			<Attribute>time</Attribute>
+		</Map>
+		<!-- Описание типа отходов. -->
+		<Map>
+			<Property>types</Property>
+			<Concept>Отход</Concept>
+			<Attribute>types</Attribute>
+		</Map>
     </DescriptionMappings>
     <SolutionClassName>cbrapp.CbrSolution</SolutionClassName>
     <SolutionMappings>
         <Map>
-            <Property>case_has_result</Property>
-            <Concept>Result</Concept>
-            <Attribute>result</Attribute>
+            <Property>solution</Property>
+            <Concept>Solutions</Concept>
+            <Attribute>solution</Attribute>
         </Map>
     </SolutionMappings>
 </OntologyConfiguration>
