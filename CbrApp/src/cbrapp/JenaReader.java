@@ -8,6 +8,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -50,6 +51,76 @@ public class JenaReader {
             Logger.getLogger(JenaReader.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+    
+    /**
+     * Метод получения uri количества отходов по значению.
+     * @param value Значение с gui.
+     * @return URI.
+     */
+    public static String getCount (String value) {
+        try {
+            String result = "";
+            
+            OntModel model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
+            model.read(new FileInputStream("vw_cbr.owl"), "");
+            
+            OntClass danger = model.getOntClass("http://www.owl-ontologies.com/vw_cbr.owl#TrashCount");
+            
+            ExtendedIterator it = danger.listInstances();
+            int size = danger.listInstances().toList().size();
+            
+            while (it.hasNext()) {
+                Object item = it.next();
+                
+                String c = ((Individual)item).getPropertyValue(model.getDatatypeProperty("trashCountValue")).toString();          
+                c = c.substring(0, c.indexOf("^"));
+                
+                if (c.equals(value))
+                    result = item.toString();
+
+            }
+            
+            model.close();            
+            
+            if (result.equals("")) result = appendCount(value, size + 1);
+            
+            return result;
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(JenaReader.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    /**
+     * Метод добавления значения в онтологию.
+     * @param value Значение с gui.
+     * @param size Количество значений в онтологии.
+     * @return URI.
+     */
+    private static String appendCount (String value, int size) {
+        
+        OntModel model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
+        try {
+            model.read(new FileInputStream("vw_cbr.owl"), "");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(JenaReader.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        String result = "http://www.owl-ontologies.com/vw_cbr.owl#tt_" + size;
+        Individual ind = model.createIndividual(result, model.getOntClass("http://www.owl-ontologies.com/vw_cbr.owl#TrashCount"));
+        ind.addProperty(model.getOntProperty("http://www.owl-ontologies.com/vw_cbr.owl#trashCountValue"), value);
+        
+        try {
+            model.write(new FileOutputStream("vw_cbr.owl"));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(JenaReader.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        model.close();
+        
+        return result;
+        
     }
     
     /**

@@ -27,7 +27,8 @@ public class CbrApp {
      */
     public static void main(String[] args) {
         
-        JenaReader.getDangerClass("IV_класс");
+//        JenaReader.getDangerClass("IV_класс");
+        JenaReader.getCount("97.88");
         
 //        CbrApplication app = new CbrApplication();
 //        String cbrResult = cbr(args);
