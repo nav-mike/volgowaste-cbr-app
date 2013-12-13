@@ -1,0 +1,31 @@
+<OntologyConfiguration>
+    <MainOntology>
+        <URL>http://www.owl-ontologies.com/Ontology1383208694.owl</URL>
+        <LocalCopy>simple_cbr.owl</LocalCopy>
+    </MainOntology>
+
+    <CaseMainConcept>Case</CaseMainConcept>
+
+    <DescriptionClassName>cbrapp.CbrDescription</DescriptionClassName>
+
+    <DescriptionMappings>
+        <Map>
+            <Property>case_has_params</Property>
+            <Concept>Params</Concept>
+            <Attribute>params</Attribute>
+        </Map>
+		<Map>
+            <Property>case_has_result</Property>
+            <Concept>Result</Concept>
+            <Attribute>result</Attribute>
+        </Map>
+    </DescriptionMappings>
+    <SolutionClassName>cbrapp.CbrSolution</SolutionClassName>
+    <SolutionMappings>
+        <Map>
+            <Property>case_has_result</Property>
+            <Concept>Result</Concept>
+            <Attribute>result</Attribute>
+        </Map>
+    </SolutionMappings>
+</OntologyConfiguration>

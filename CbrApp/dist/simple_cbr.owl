@@ -1,0 +1,593 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.owl-ontologies.com/Ontology1383208694.owl#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.owl-ontologies.com/Ontology1383208694.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Numeric"/>
+  <owl:Class rdf:ID="Result"/>
+  <owl:Class rdf:ID="Params"/>
+  <owl:Class rdf:ID="Case"/>
+  <owl:FunctionalProperty rdf:ID="case_has_params">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Case"/>
+    <rdfs:range rdf:resource="#Params"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="result_has_value">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Result"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="case_has_result">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Case"/>
+    <rdfs:range rdf:resource="#Result"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="params_has_numeric">
+    <rdfs:domain rdf:resource="#Params"/>
+    <rdfs:range rdf:resource="#Numeric"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="numeric_has_value">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Numeric"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <Case rdf:ID="Case_13">
+    <case_has_params>
+      <Params rdf:ID="Params_13">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_13">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >13.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+    <case_has_result>
+      <Result rdf:ID="Result_13">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >169.0</result_has_value>
+      </Result>
+    </case_has_result>
+  </Case>
+  <Case rdf:ID="Case_7">
+    <case_has_params>
+      <Params rdf:ID="Params_7">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_7">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >7.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+    <case_has_result>
+      <Result rdf:ID="Result_7">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >49.0</result_has_value>
+      </Result>
+    </case_has_result>
+  </Case>
+  <Params rdf:ID="Params_Input">
+    <params_has_numeric>
+      <Numeric rdf:ID="Numeric_Input">
+        <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >1.9</numeric_has_value>
+      </Numeric>
+    </params_has_numeric>
+  </Params>
+  <Case rdf:ID="Case_27">
+    <case_has_result>
+      <Result rdf:ID="Result_27">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >729.0</result_has_value>
+      </Result>
+    </case_has_result>
+    <case_has_params>
+      <Params rdf:ID="Params_27">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_27">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >27.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+  </Case>
+  <Case rdf:ID="Case_14">
+    <case_has_params>
+      <Params rdf:ID="Params_14">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_14">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >14.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+    <case_has_result>
+      <Result rdf:ID="Result_14">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >196.0</result_has_value>
+      </Result>
+    </case_has_result>
+  </Case>
+  <Case rdf:ID="Case_6">
+    <case_has_params>
+      <Params rdf:ID="Params_6">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_6">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >6.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+    <case_has_result>
+      <Result rdf:ID="Result_6">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >36.0</result_has_value>
+      </Result>
+    </case_has_result>
+  </Case>
+  <Case rdf:ID="Case_28">
+    <case_has_params>
+      <Params rdf:ID="Params_28">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_28">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >28.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+    <case_has_result>
+      <Result rdf:ID="Result_28">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >784.0</result_has_value>
+      </Result>
+    </case_has_result>
+  </Case>
+  <Case rdf:ID="Case_11">
+    <case_has_result>
+      <Result rdf:ID="Result_11">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >121.0</result_has_value>
+      </Result>
+    </case_has_result>
+    <case_has_params>
+      <Params rdf:ID="Params_11">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_11">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >11.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+  </Case>
+  <Case rdf:ID="Case_21">
+    <case_has_params>
+      <Params rdf:ID="Params_21">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_21">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >21.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+    <case_has_result>
+      <Result rdf:ID="Result_21">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >441.0</result_has_value>
+      </Result>
+    </case_has_result>
+  </Case>
+  <Case rdf:ID="Case_9">
+    <case_has_params>
+      <Params rdf:ID="Params_9">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_9">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >9.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+    <case_has_result>
+      <Result rdf:ID="Result_9">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >81.0</result_has_value>
+      </Result>
+    </case_has_result>
+  </Case>
+  <Case rdf:ID="Case_20">
+    <case_has_result>
+      <Result rdf:ID="Result_20">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >400.0</result_has_value>
+      </Result>
+    </case_has_result>
+    <case_has_params>
+      <Params rdf:ID="Params_20">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_20">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >20.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+  </Case>
+  <Case rdf:ID="Case_29">
+    <case_has_params>
+      <Params rdf:ID="Params_29">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_29">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >29.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+    <case_has_result>
+      <Result rdf:ID="Result_29">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >841.0</result_has_value>
+      </Result>
+    </case_has_result>
+  </Case>
+  <Case rdf:ID="Case_1">
+    <case_has_params>
+      <Params rdf:ID="Params_1">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_1">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >1.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+    <case_has_result>
+      <Result rdf:ID="Result_1">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >1.0</result_has_value>
+      </Result>
+    </case_has_result>
+  </Case>
+  <Case rdf:ID="Case_30">
+    <case_has_params>
+      <Params rdf:ID="Params_30">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_30">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >30.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+    <case_has_result>
+      <Result rdf:ID="Result_30">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >900.0</result_has_value>
+      </Result>
+    </case_has_result>
+  </Case>
+  <Case rdf:ID="Case_12">
+    <case_has_params>
+      <Params rdf:ID="Params_12">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_12">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >12.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+    <case_has_result>
+      <Result rdf:ID="Result_12">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >144.0</result_has_value>
+      </Result>
+    </case_has_result>
+  </Case>
+  <Case rdf:ID="Case_22">
+    <case_has_params>
+      <Params rdf:ID="Params_22">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_22">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >22.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+    <case_has_result>
+      <Result rdf:ID="Result_22">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >484.0</result_has_value>
+      </Result>
+    </case_has_result>
+  </Case>
+  <Case rdf:ID="Case_8">
+    <case_has_params>
+      <Params rdf:ID="Params_8">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_8">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >8.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+    <case_has_result>
+      <Result rdf:ID="Result_8">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >64.0</result_has_value>
+      </Result>
+    </case_has_result>
+  </Case>
+  <Case rdf:ID="Case_17">
+    <case_has_params>
+      <Params rdf:ID="Params_17">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_17">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >17.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+    <case_has_result>
+      <Result rdf:ID="Result_17">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >289.0</result_has_value>
+      </Result>
+    </case_has_result>
+  </Case>
+  <Case rdf:ID="Case_23">
+    <case_has_params>
+      <Params rdf:ID="Params_23">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_23">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >23.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+    <case_has_result>
+      <Result rdf:ID="Result_23">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >529.0</result_has_value>
+      </Result>
+    </case_has_result>
+  </Case>
+  <Case rdf:ID="Case_3">
+    <case_has_result>
+      <Result rdf:ID="Result_3">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >9.0</result_has_value>
+      </Result>
+    </case_has_result>
+    <case_has_params>
+      <Params rdf:ID="Params_3">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_3">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >3.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+  </Case>
+  <Case rdf:ID="Case_2">
+    <case_has_result>
+      <Result rdf:ID="Result_2">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >4.0</result_has_value>
+      </Result>
+    </case_has_result>
+    <case_has_params>
+      <Params rdf:ID="Params_2">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_2">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >2.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+  </Case>
+  <Case rdf:ID="Case_18">
+    <case_has_result>
+      <Result rdf:ID="Result_18">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >324.0</result_has_value>
+      </Result>
+    </case_has_result>
+    <case_has_params>
+      <Params rdf:ID="Params_18">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_18">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >18.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+  </Case>
+  <Case rdf:ID="Case_19">
+    <case_has_result>
+      <Result rdf:ID="Result_19">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >361.0</result_has_value>
+      </Result>
+    </case_has_result>
+    <case_has_params>
+      <Params rdf:ID="Params_19">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_19">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >19.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+  </Case>
+  <Case rdf:ID="Case_24">
+    <case_has_params>
+      <Params rdf:ID="Params_24">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_24">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >24.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+    <case_has_result>
+      <Result rdf:ID="Result_24">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >576.0</result_has_value>
+      </Result>
+    </case_has_result>
+  </Case>
+  <Case rdf:ID="Case_10">
+    <case_has_params>
+      <Params rdf:ID="Params_10">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_10">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >10.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+    <case_has_result>
+      <Result rdf:ID="Result_10">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >100.0</result_has_value>
+      </Result>
+    </case_has_result>
+  </Case>
+  <Case rdf:ID="Case_15">
+    <case_has_result>
+      <Result rdf:ID="Result_15">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >225.0</result_has_value>
+      </Result>
+    </case_has_result>
+    <case_has_params>
+      <Params rdf:ID="Params_15">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_15">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >15.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+  </Case>
+  <Case rdf:ID="Case_25">
+    <case_has_result>
+      <Result rdf:ID="Result_25">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >625.0</result_has_value>
+      </Result>
+    </case_has_result>
+    <case_has_params>
+      <Params rdf:ID="Params_25">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_25">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >25.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+  </Case>
+  <Case rdf:ID="Case_5">
+    <case_has_params>
+      <Params rdf:ID="Params_5">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_5">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >5.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+    <case_has_result>
+      <Result rdf:ID="Result_5">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >25.0</result_has_value>
+      </Result>
+    </case_has_result>
+  </Case>
+  <Case rdf:ID="Case_16">
+    <case_has_result>
+      <Result rdf:ID="Result_16">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >256.0</result_has_value>
+      </Result>
+    </case_has_result>
+    <case_has_params>
+      <Params rdf:ID="Params_16">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_16">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >16.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+  </Case>
+  <Case rdf:ID="Case_26">
+    <case_has_result>
+      <Result rdf:ID="Result_26">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >676.0</result_has_value>
+      </Result>
+    </case_has_result>
+    <case_has_params>
+      <Params rdf:ID="Params_26">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_26">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >26.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+  </Case>
+  <Case rdf:ID="Case_4">
+    <case_has_params>
+      <Params rdf:ID="Params_4">
+        <params_has_numeric>
+          <Numeric rdf:ID="Numeric_4">
+            <numeric_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >4.0</numeric_has_value>
+          </Numeric>
+        </params_has_numeric>
+      </Params>
+    </case_has_params>
+    <case_has_result>
+      <Result rdf:ID="Result_4">
+        <result_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >16.0</result_has_value>
+      </Result>
+    </case_has_result>
+  </Case>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.5, Build 663)  http://protege.stanford.edu -->
