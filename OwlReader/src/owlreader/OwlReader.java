@@ -20,14 +20,6 @@ public class OwlReader {
      */
     public static void main(String[] args) {
         // TODO текст приложения
-        DangerClassReader dcr = new DangerClassReader();
-        
-        ArrayList arrayList = dcr.execQuery();
-        
-        DangerClassResultArray dcra = new DangerClassResultArray(arrayList);
-        
-        writeDangerClassesToFile(dcra, "dclass_result.json");
-        
         TrashTypeReader ttr = new TrashTypeReader();
         
         ArrayList list = ttr.execQuery();
@@ -41,14 +33,29 @@ public class OwlReader {
      * Метод парсинга параметров командной строки.
      * @param args Параметры командной строки.
      */
-    private void parseArgs (String[] args) {
+    private static void parseArgs (String[] args) {
         
         if (args.length != 1)
             System.exit(1);
         
-        if (args[0].equals("-dc"));
+        if (args[0].equals("-dc"))
+            readDangerClasses();
         
         if (args[0].equals("-tt"));
+    }
+    
+    /**
+     * Метод чтения классов опасности из owl.
+     */
+    private static void readDangerClasses() {
+        
+        DangerClassReader dcr = new DangerClassReader();
+        
+        ArrayList arrayList = dcr.execQuery();
+        
+        DangerClassResultArray dcra = new DangerClassResultArray(arrayList);
+        
+        writeDangerClassesToFile(dcra, "dclass_result.json");
     }
     
     /**
