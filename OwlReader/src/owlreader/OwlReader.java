@@ -24,7 +24,9 @@ public class OwlReader {
      */
     public static void main(String[] args) {
         // TODO текст приложения
-        parseArgs(args);
+        readDangerClasses();
+    
+        readTrashTypes();
     }
     
     /**

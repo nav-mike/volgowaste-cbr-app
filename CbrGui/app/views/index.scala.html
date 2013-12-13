@@ -1,4 +1,4 @@
-@(message: String, dclasses: List[DangerClassItem], astates: List[String])
+@(message: String, dclasses: List[DangerClassItem], astates: List[String], ttypes: List[DangerClassItem])
 
 @main("Формирование запроса") {
 
@@ -15,9 +15,10 @@
     <div class="form-group">
         <label for="t_type">Тип отходов:</label>
         <select id="t_type" class="form-control" required="required">
-            <option>- - -</option>
-            <option>Бумага</option>
-            <option>Дерево</option>
+            <option value="-">- - -</option>
+            @for(item <- ttypes) {
+                <option value="@item.getId">@item.getValue</option>
+            }
         </select>
     </div>
     <div class="form-group">
@@ -27,7 +28,7 @@
     <div class="form-group">
         <label for="a_state">Агрегатное состояние</label>
         <select id="a_state" class="form-control" required="required">
-            <option>- - -</option>
+            <option value="-">- - -</option>
             @for(item <- astates) {
                 <option value="@item">@item</option>
             }

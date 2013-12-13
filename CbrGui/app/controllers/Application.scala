@@ -16,7 +16,11 @@ object Application extends Controller {
 
     array.readFile("dclass_result.json")
 
-    Ok(views.html.index("Your new application is ready.", array.getList, getAggregateState))
+    val types = new DangerClassArray
+
+    types.readFile("ttype_result.json")
+
+    Ok(views.html.index("Your new application is ready.", array.getList, getAggregateState, types.getList))
   }
 
   /**
@@ -71,6 +75,18 @@ object Application extends Controller {
 
     val builder = new ProcessBuilder("run.bat")
     builder.redirectErrorStream(true)
+
+    val process = builder.start()
+  }
+
+  /**
+   * Метод вызова читалки owl для получения типов отходов.
+   */
+  def getTrashType = {
+
+    writeBatFile("tt")
+
+    val builder = new ProcessBuilder("run.bat")
 
     val process = builder.start()
   }
