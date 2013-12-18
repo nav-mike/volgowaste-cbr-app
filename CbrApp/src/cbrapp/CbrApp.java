@@ -8,6 +8,7 @@ package cbrapp;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import jcolibri.cbrcore.CBRCase;
@@ -26,25 +27,27 @@ public class CbrApp {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-//        JenaReader.getDangerClass("IV_класс");
-//        JenaReader.getCount("97.88");
-        
+
         CbrApplication app = new CbrApplication();
         String cbrResult = cbr(args);
-        writeResult(cbrResult);
         
-        ReadSolutions.getSolutionsText("solutions_1");
+        ArrayList list = ReadSolutions.getSolutionsText(cbrResult);
+        
+        writeResult(list);
     }
     
     /**
      * Функция записи результата CBR в файл.
      * @param result Результат работы CBR.
      */
-    private static void writeResult (String result) {
+    private static void writeResult (ArrayList<String> result) {
         try {
             PrintWriter out = new PrintWriter("result.txt");
-            out.println(result);
+            
+            for (String item : result) {
+                out.println(item);
+            }
+            
             out.close();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(CbrApp.class.getName()).log(Level.SEVERE, null, ex);

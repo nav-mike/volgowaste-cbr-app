@@ -27,7 +27,8 @@ public class ReadSolutions {
         
         while (it.hasNext()) {
             
-            result.add(it.next().toString());
+            String item = it.next().toString();
+            result.add(item.substring(0, item.indexOf('^')));
         }
         
         return result;
