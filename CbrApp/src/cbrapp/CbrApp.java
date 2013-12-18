@@ -28,11 +28,13 @@ public class CbrApp {
     public static void main(String[] args) {
         
 //        JenaReader.getDangerClass("IV_класс");
-        JenaReader.getCount("97.88");
+//        JenaReader.getCount("97.88");
         
-//        CbrApplication app = new CbrApplication();
-//        String cbrResult = cbr(args);
-//        writeResult(cbrResult);
+        CbrApplication app = new CbrApplication();
+        String cbrResult = cbr(args);
+        writeResult(cbrResult);
+        
+        ReadSolutions.getSolutionsText("solutions_1");
     }
     
     /**
@@ -73,7 +75,7 @@ public class CbrApp {
             app.cycle(query);
             CBRCase c = app.result();
             CbrSolution cd = (CbrSolution) c.getSolution();
-            return result = cd.toString();
+            return result = cd.getResult().toString();
             
         } catch (ExecutionException | OntologyAccessException ex) {
             Logger.getLogger(CbrApp.class.getName()).log(Level.SEVERE, null, ex);

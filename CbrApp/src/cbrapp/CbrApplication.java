@@ -133,27 +133,27 @@ public class CbrApplication implements StandardCBRApplication{
         
         // danger
         attribute = new Attribute("danger", CbrDescription.class);
-        result.addMapping(attribute, new OntDeepBasic());
+        result.addMapping(attribute, new Equal());
         result.setWeight(attribute, weight);
         
         // count
         attribute = new Attribute("count", CbrDescription.class);
-        result.addMapping(attribute, new OntDeepBasic());
+        result.addMapping(attribute, new Equal());
         result.setWeight(attribute, weight);
         
         // state
         attribute = new Attribute("state", CbrDescription.class);
-        result.addMapping(attribute, new OntDeepBasic());
+        result.addMapping(attribute, new Equal());
         result.setWeight(attribute, weight);
 
         // time
         attribute = new Attribute("time", CbrDescription.class);
-        result.addMapping(attribute, new OntDeepBasic());
+        result.addMapping(attribute, new Equal());
         result.setWeight(attribute, weight);
         
         // type
         attribute = new Attribute("types", CbrDescription.class);
-        result.addMapping(attribute, new OntDeepBasic());
+        result.addMapping(attribute, new Equal());
         result.setWeight(attribute, weight);
         
         return result;
