@@ -6,6 +6,7 @@
 
 package cbrapp;
 
+import cbrapp.gui.MainWindow;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -27,13 +28,18 @@ public class CbrApp {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        if (args.length == 0) {
+            MainWindow mainWindow = new MainWindow("http://www.owl-ontologies.com/vw_cbr.owl#");
+        } else {
 
-        CbrApplication app = new CbrApplication();
-        String cbrResult = cbr(args);
-        
-        ArrayList list = ReadSolutions.getSolutionsText(cbrResult);
-        
-        writeResult(list);
+            CbrApplication app = new CbrApplication();
+            String cbrResult = cbr(args);
+
+            ArrayList list = ReadSolutions.getSolutionsText(cbrResult);
+
+            writeResult(list);
+        }
     }
     
     /**

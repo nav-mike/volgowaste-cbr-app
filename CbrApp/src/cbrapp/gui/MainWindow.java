@@ -1,10 +1,24 @@
 package cbrapp.gui;
 
+import com.hp.hpl.jena.ontology.OntClass;
+import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.OntModelSpec;
+import com.hp.hpl.jena.ontology.OntResource;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.util.iterator.ExtendedIterator;
+import es.ucm.fdi.gaia.ontobridge.OntoBridge;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -12,6 +26,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import jcolibri.util.OntoBridgeSingleton;
 
 /**
  * Класс главного окна.
@@ -51,10 +66,44 @@ public class MainWindow extends JFrame {
     /** Пространство имен онтологии. */
     private String ns;
     
+    /**
+     * Метод инициализации количества мусора.
+     */
+    private void initCount() {
+        try {
+            Vector<String> result = new Vector();
+            
+            OntModel model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
+            model.read(new FileInputStream("vw_cbr.owl"), "");
+            
+            OntClass c = model.getOntClass(ns + "TrashCount");
+            
+            ExtendedIterator it = c.listInstances();
+            
+            while (it.hasNext()) {
+                String item = it.next().toString();
+                result.add(item.substring(item.indexOf('#') + 1, item.length()));
+            }
+            
+            this.countValues = new JComboBox<>(result);
+            
+            model.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    /**
+     * Конструктор.
+     * @param ns Пространство имен онтологии.
+     */
     public MainWindow(String ns) {
         super("CBR с адаптацией");
         
         this.ns = ns;
+        
+        this.initCount();
         
         this.setLayout(new GridLayout(1, 2, 50, 50));
         
