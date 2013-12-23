@@ -65,18 +65,20 @@ public class MainWindow extends JFrame {
     
     /** Пространство имен онтологии. */
     private String ns;
-    
+  
     /**
-     * Метод инициализации количества мусора.
+     * Метод инициализации выпадающих списков.
+     * @param ontoClass Класс выпадающего списка в онтологии.
+     * @return Список значений для выпадающего списка.
      */
-    private void initCount() {
+    private Vector initComboBox (String ontoClass) {
         try {
             Vector<String> result = new Vector();
             
             OntModel model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
             model.read(new FileInputStream("vw_cbr.owl"), "");
             
-            OntClass c = model.getOntClass(ns + "TrashCount");
+            OntClass c = model.getOntClass(ns + ontoClass);
             
             ExtendedIterator it = c.listInstances();
             
@@ -85,13 +87,14 @@ public class MainWindow extends JFrame {
                 result.add(item.substring(item.indexOf('#') + 1, item.length()));
             }
             
-            this.countValues = new JComboBox<>(result);
-            
             model.close();
+            
+            return result;
+            
         } catch (FileNotFoundException ex) {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        return null;
     }
     
     /**
@@ -103,7 +106,10 @@ public class MainWindow extends JFrame {
         
         this.ns = ns;
         
-        this.initCount();
+        this.countValues = new JComboBox<>(this.initComboBox("TrashCount"));
+        this.classValues = new JComboBox<>(this.initComboBox("Danger"));
+        this.stateValues = new JComboBox<>(this.initComboBox("AggregateState"));
+        this.typeValues  = new JComboBox<>(this.initComboBox("Type"));
         
         this.setLayout(new GridLayout(1, 2, 50, 50));
         
