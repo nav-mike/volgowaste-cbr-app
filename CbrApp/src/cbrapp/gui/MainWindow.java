@@ -1,5 +1,6 @@
 package cbrapp.gui;
 
+import cbrapp.ReadSolutions;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
@@ -10,8 +11,11 @@ import es.ucm.fdi.gaia.ontobridge.OntoBridge;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.MouseEvent;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -26,6 +30,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import jcolibri.util.OntoBridgeSingleton;
 
 /**
@@ -55,7 +61,7 @@ public class MainWindow extends JFrame {
     private JLabel typeLabel = new JLabel("Тип отходов:");
     
     /** Поле вывода списка рекомендаций. */
-    private JList<String> solutoinsList = new JList<String>();
+    private JTable table;
     
     /** Подпись рекомендаций. */
     private JLabel solutionsLabel = new JLabel("Рекомендации:");
@@ -103,6 +109,7 @@ public class MainWindow extends JFrame {
      */
     public MainWindow(String ns) {
         super("CBR с адаптацией");
+        this.table = new JTable(new DefaultTableModel(new Object[]{"Column1"}, 0));
         
         this.ns = ns;
         
@@ -128,7 +135,7 @@ public class MainWindow extends JFrame {
         
         GridLayout right = new GridLayout(1, 1);
         JPanel rightPanel = new JPanel(right);
-        rightPanel.add(this.solutoinsList);
+        rightPanel.add(this.table);
         
         this.add(leftPanel);
         this.add(rightPanel);
@@ -142,6 +149,38 @@ public class MainWindow extends JFrame {
         this.setResizable(false);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        this.runBtn.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+                DefaultTableModel dtm = (DefaultTableModel) table.getModel();
+                dtm.setRowCount(0);
+                
+                String[] values = new String[5];
+                values[0] = (String) countValues.getSelectedItem();
+                values[1] = (String) classValues.getSelectedItem();
+                values[2] = (String) stateValues.getSelectedItem();
+                values[3] = "fdt_1";
+                values[4] = (String) typeValues.getSelectedItem();
+                
+                ArrayList<String> solutionsText = ReadSolutions.getSolutionsText(cbrapp.CbrApp.cbr(values));
+                
+                cbrapp.CbrApp.writeResult(solutionsText);
+                
+                for (String item : solutionsText) {
+                    
+                    DefaultTableModel model = (DefaultTableModel) table.getModel();
+                    model.addRow(new Object[]{item});
+                }
+                
+            }
+        });
+    }
+    
+    private void initTable(String data[][], String[] col) {
+        System.out.println("qwe");
     }
     
 }

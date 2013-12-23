@@ -46,7 +46,7 @@ public class CbrApp {
      * Функция записи результата CBR в файл.
      * @param result Результат работы CBR.
      */
-    private static void writeResult (ArrayList<String> result) {
+    public static void writeResult (ArrayList<String> result) {
         try {
             PrintWriter out = new PrintWriter("result.txt");
             
@@ -65,7 +65,7 @@ public class CbrApp {
      * @param value Значение, введенное пользователем.
      * @return Результат CBR анализа.
      */
-    private static String cbr (String[] values) {
+    public static String cbr (String[] values) {
         try {
             String result = "";
             CbrApplication app = new CbrApplication();
@@ -73,11 +73,11 @@ public class CbrApp {
             app.preCycle();
             
             CbrDescription description = new CbrDescription();
-            description.setCount(new Instance("tt_1"));
-            description.setDanger(new Instance("I_class"));
-            description.setState(new Instance("as_1"));
-            description.setTime(new Instance("fdt_1"));
-            description.setTypes(new Instance("Журналы"));
+            description.setCount(new Instance(values[0]));
+            description.setDanger(new Instance(values[1]));
+            description.setState(new Instance(values[2]));
+            description.setTime(new Instance(values[3]));
+            description.setTypes(new Instance(values[4]));
             
             CBRQuery query = new CBRQuery();
             query.setDescription(description);
