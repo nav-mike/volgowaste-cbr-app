@@ -17,52 +17,63 @@
   <owl:Class rdf:ID="Case"/>
   <owl:Class rdf:ID="AggregateState"/>
   <owl:Class rdf:ID="Danger"/>
-  <owl:Class rdf:ID="Type"/>
+  <owl:Class rdf:ID="Type">
+    <owl:disjointWith>
+      <owl:Restriction>
+        <owl:hasValue>
+          <Type rdf:ID="Батарейки"/>
+        </owl:hasValue>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="types"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="#types">
+    <rdfs:domain rdf:resource="#Case"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#Type"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="time">
+    <rdfs:range rdf:resource="#FullDestroyTime"/>
+    <rdfs:domain rdf:resource="#Case"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="count">
+    <rdfs:domain rdf:resource="#Case"/>
+    <rdfs:range rdf:resource="#TrashCount"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="solution">
+    <rdfs:domain rdf:resource="#Case"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#Solutions"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="state">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Case"/>
+    <rdfs:range rdf:resource="#AggregateState"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="danger">
+    <rdfs:domain rdf:resource="#Case"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#Danger"/>
+  </owl:ObjectProperty>
   <owl:DatatypeProperty rdf:ID="solutionsValue">
     <rdfs:domain rdf:resource="#Solutions"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   </owl:DatatypeProperty>
-  <owl:FunctionalProperty rdf:ID="types">
-    <rdfs:domain rdf:resource="#Case"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:range rdf:resource="#Type"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:ID="timeValue">
+  <owl:DatatypeProperty rdf:ID="timeValue">
     <rdfs:domain rdf:resource="#FullDestroyTime"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:ID="time">
-    <rdfs:range rdf:resource="#FullDestroyTime"/>
-    <rdfs:domain rdf:resource="#Case"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:ID="count">
-    <rdfs:domain rdf:resource="#Case"/>
-    <rdfs:range rdf:resource="#TrashCount"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:ID="solution">
-    <rdfs:domain rdf:resource="#Case"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:range rdf:resource="#Solutions"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:ID="state">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="#Case"/>
-    <rdfs:range rdf:resource="#AggregateState"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:ID="danger">
-    <rdfs:domain rdf:resource="#Case"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:range rdf:resource="#Danger"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:ID="trashCountValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="trashCountValue">
     <rdfs:domain rdf:resource="#TrashCount"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:ID="stateValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="stateValue">
     <rdfs:domain rdf:resource="#AggregateState"/>
     <rdfs:range>
       <owl:DataRange>
@@ -71,9 +82,9 @@
           >Газообразное</rdf:first>
           <rdf:rest rdf:parseType="Resource">
             <rdf:rest rdf:parseType="Resource">
-              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
               <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >Твердое</rdf:first>
+              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
             </rdf:rest>
             <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
             >Жидкое</rdf:first>
@@ -81,10 +92,9 @@
         </owl:oneOf>
       </owl:DataRange>
     </rdfs:range>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-  </owl:FunctionalProperty>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
   <Type rdf:ID="Макулатура"/>
-  <Type rdf:ID="Отходы_из_жироотделителей"/>
   <Case rdf:ID="Case_1">
     <count>
       <TrashCount rdf:ID="более_5_млн"/>
@@ -92,11 +102,11 @@
     <solution>
       <Solutions rdf:ID="Solutions_2">
         <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >•	Для утилизации можно воспользоваться услугами «Инжиниринговая компания "ПРОМЫШЛЕННАЯ ИННОВАЦИЯ"»</solutionsValue>
+        >•	При хранении на своем полигоне - штраф 2 млрд рублей</solutionsValue>
         <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >•	В случае отказа от штрафа - вызов в суд</solutionsValue>
         <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >•	При хранении на своем полигоне - штраф 2 млрд рублей</solutionsValue>
+        >•	Для утилизации можно воспользоваться услугами «Инжиниринговая компания "ПРОМЫШЛЕННАЯ ИННОВАЦИЯ"»</solutionsValue>
       </Solutions>
     </solution>
     <danger>
@@ -119,18 +129,70 @@
     </types>
   </Case>
   <Type rdf:ID="Одноразовая_посуда"/>
-  <Danger rdf:ID="II_class"/>
   <FullDestroyTime rdf:ID="fdt_4">
     <timeValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
     >2.5</timeValue>
   </FullDestroyTime>
-  <Type rdf:ID="Опилки_натуральной_чистой_древесины"/>
+  <Case rdf:ID="Case_14">
+    <state rdf:resource="#as_3"/>
+    <types>
+      <Type rdf:ID="Отходы_асфальтобетона_и_асфальтобетонной_смеси"/>
+    </types>
+    <count>
+      <TrashCount rdf:ID="от_1_до_5_млн"/>
+    </count>
+    <solution>
+      <Solutions rdf:ID="Solutions_9">
+        <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Повторное использование</solutionsValue>
+      </Solutions>
+    </solution>
+    <time rdf:resource="#fdt_1"/>
+    <danger>
+      <Danger rdf:ID="IV_class"/>
+    </danger>
+  </Case>
   <Type rdf:ID="Музыкальные_пластинки"/>
-  <Type rdf:ID="Отходы_асфальтобетона_и_асфальтобетонной_смеси"/>
   <Type rdf:ID="Листовки"/>
   <Type rdf:ID="Линолеум"/>
+  <Case rdf:ID="Case_2">
+    <time rdf:resource="#fdt_1"/>
+    <state>
+      <AggregateState rdf:ID="as_2">
+        <stateValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Жидкое</stateValue>
+      </AggregateState>
+    </state>
+    <danger rdf:resource="#IV_class"/>
+    <types>
+      <Type rdf:ID="Отходы_из_жироотделителей"/>
+    </types>
+    <count rdf:resource="#от_1_до_5_млн"/>
+  </Case>
   <Type rdf:ID="Плетёные_мешки_и_сумки"/>
   <Type rdf:ID="Книги"/>
+  <Case rdf:ID="Case_13">
+    <state rdf:resource="#as_2"/>
+    <time rdf:resource="#fdt_1"/>
+    <count>
+      <TrashCount rdf:ID="от_500_тыс_до_1_млн"/>
+    </count>
+    <solution>
+      <Solutions rdf:ID="Solutions_7">
+        <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Восстановление на месте использования</solutionsValue>
+        <solutionsValue xml:lang="ru">Отправка на нефтеперерабатывающий завод</solutionsValue>
+        <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Регенерация</solutionsValue>
+        <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Переработка и сжигание для извлечения энергии</solutionsValue>
+      </Solutions>
+    </solution>
+    <types>
+      <Type rdf:ID="Масла_моторные_отработанные"/>
+    </types>
+    <danger rdf:resource="#III_class"/>
+  </Case>
   <Type rdf:ID="Пузырчатая_упаковка"/>
   <FullDestroyTime rdf:ID="fdt_5">
     <timeValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
@@ -138,20 +200,18 @@
   </FullDestroyTime>
   <Type rdf:ID="Стаканчик_из_под_йогурта"/>
   <Type rdf:ID="Скотч"/>
-  <TrashCount rdf:ID="от_1_до_5_млн"/>
   <Type rdf:ID="Картонная_упаковка"/>
-  <Type rdf:ID="Масла_моторные_отработанные"/>
   <Type rdf:ID="Перчатки"/>
   <Case rdf:ID="Case_3">
     <time rdf:resource="#fdt_1"/>
     <solution>
       <Solutions rdf:ID="Solutions_4">
         <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >•	ООО "БИОТЕРМ"</solutionsValue>
+        >•	Механическая деструкция + стерилизация</solutionsValue>
         <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >•	Высокотемпературное сжигание (инсинерация)</solutionsValue>
         <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >•	Механическая деструкция + стерилизация</solutionsValue>
+        >•	ООО "БИОТЕРМ"</solutionsValue>
       </Solutions>
     </solution>
     <types>
@@ -160,15 +220,8 @@
     <count>
       <TrashCount rdf:ID="от_100_до_200_тыс"/>
     </count>
-    <state>
-      <AggregateState rdf:ID="as_2">
-        <stateValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >Жидкое</stateValue>
-      </AggregateState>
-    </state>
-    <danger>
-      <Danger rdf:ID="IV_class"/>
-    </danger>
+    <state rdf:resource="#as_2"/>
+    <danger rdf:resource="#IV_class"/>
   </Case>
   <Type rdf:ID="Бутылки_из_под_напитков"/>
   <FullDestroyTime rdf:ID="fdt_2">
@@ -176,7 +229,7 @@
     >22.0</timeValue>
   </FullDestroyTime>
   <Type rdf:ID="Журналы"/>
-  <TrashCount rdf:ID="от_500_тыс_до_1_млн"/>
+  <Type rdf:ID="Сотовые_телефоны"/>
   <Case rdf:ID="Case_7">
     <types>
       <Type rdf:ID="Бой_строительного_кирпича"/>
@@ -189,42 +242,98 @@
     <solution>
       <Solutions rdf:ID="Solutions_8">
         <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >•	Производить тяжелые марки бетона</solutionsValue>
-        <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >•	Строить временные дороги</solutionsValue>
-        <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >•	Засыпать болотистые местности</solutionsValue>
+        >•	Вывоз на полигон для переработки</solutionsValue>
         <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >•	Сортировка, удаление других отходов</solutionsValue>
         <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >•	Вывоз на полигон для переработки</solutionsValue>
+        >•	Засыпать болотистые местности</solutionsValue>
+        <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >•	Строить временные дороги</solutionsValue>
+        <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >•	Производить тяжелые марки бетона</solutionsValue>
       </Solutions>
     </solution>
     <state rdf:resource="#as_3"/>
   </Case>
   <Type rdf:ID="Канистра"/>
+  <Case rdf:ID="Case_12">
+    <solution>
+      <Solutions rdf:ID="Solutions_5">
+        <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Утилизация только в специальных фирмах</solutionsValue>
+      </Solutions>
+    </solution>
+    <danger>
+      <Danger rdf:ID="II_class"/>
+    </danger>
+    <state rdf:resource="#as_3"/>
+    <count>
+      <TrashCount rdf:ID="до_100_тыс"/>
+    </count>
+    <types>
+      <Type rdf:ID="Аккумуляторы_свинцовые_отработанные_и_брак"/>
+    </types>
+    <time rdf:resource="#fdt_1"/>
+  </Case>
   <Danger rdf:ID="I_class"/>
-  <Type rdf:ID="Отходы_рубероида"/>
   <Type rdf:ID="Корпус_лодки"/>
   <Type rdf:ID="Водопроводная_труба"/>
   <Type rdf:ID="Упаковочная_плёнка"/>
-  <Type rdf:ID="Аккумуляторы_свинцовые_отработанные_и_брак"/>
+  <Solutions rdf:ID="Solutions_3">
+    <solutionsValue xml:lang="ru">В качестве сырья для переработки или для технической утилизации</solutionsValue>
+    <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Может быть использовано на корм животным</solutionsValue>
+  </Solutions>
   <AggregateState rdf:ID="as_1">
     <stateValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Газообразное</stateValue>
   </AggregateState>
+  <Case rdf:ID="Case_15">
+    <solution>
+      <Solutions rdf:ID="Solutions_10">
+        <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Направить на переработку в специализированные организации</solutionsValue>
+        <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Вторичное использование</solutionsValue>
+      </Solutions>
+    </solution>
+    <state rdf:resource="#as_3"/>
+    <count>
+      <TrashCount rdf:ID="от_200_тыс_до_500_тыс"/>
+    </count>
+    <types>
+      <Type rdf:ID="Отходы_рубероида"/>
+    </types>
+    <time rdf:resource="#fdt_1"/>
+    <danger rdf:resource="#IV_class"/>
+  </Case>
   <FullDestroyTime rdf:ID="fdt_3">
     <timeValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
     >18.0</timeValue>
   </FullDestroyTime>
-  <TrashCount rdf:ID="от_200_тыс_до_500_тыс"/>
   <Type rdf:ID="Рекламные_баннеры"/>
+  <Case rdf:ID="Case_11">
+    <danger rdf:resource="#V_class"/>
+    <types>
+      <Type rdf:ID="Опилки_натуральной_чистой_древесины"/>
+    </types>
+    <state rdf:resource="#as_3"/>
+    <solution>
+      <Solutions rdf:ID="Solutions_1">
+        <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Плитное производство</solutionsValue>
+        <solutionsValue xml:lang="ru">В качестве топлива</solutionsValue>
+        <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Использование в сельском хозяйстве в кормовых добавках и удобрений</solutionsValue>
+      </Solutions>
+    </solution>
+    <time rdf:resource="#fdt_1"/>
+    <count rdf:resource="#от_200_тыс_до_500_тыс"/>
+  </Case>
   <Type rdf:ID="Сандвич_панель"/>
   <Case rdf:ID="Case_5">
     <danger rdf:resource="#V_class"/>
-    <count>
-      <TrashCount rdf:ID="до_100_тыс"/>
-    </count>
+    <count rdf:resource="#до_100_тыс"/>
     <solution>
       <Solutions rdf:ID="Solutions_6">
         <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
