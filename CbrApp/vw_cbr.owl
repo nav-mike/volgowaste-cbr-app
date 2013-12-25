@@ -20,12 +20,12 @@
   <owl:Class rdf:ID="Type">
     <owl:disjointWith>
       <owl:Restriction>
-        <owl:hasValue>
-          <Type rdf:ID="Батарейки"/>
-        </owl:hasValue>
         <owl:onProperty>
           <owl:ObjectProperty rdf:ID="types"/>
         </owl:onProperty>
+        <owl:hasValue>
+          <Type rdf:ID="Батарейки"/>
+        </owl:hasValue>
       </owl:Restriction>
     </owl:disjointWith>
   </owl:Class>
@@ -81,13 +81,13 @@
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
           >Газообразное</rdf:first>
           <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Жидкое</rdf:first>
             <rdf:rest rdf:parseType="Resource">
               <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >Твердое</rdf:first>
               <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
             </rdf:rest>
-            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >Жидкое</rdf:first>
           </rdf:rest>
         </owl:oneOf>
       </owl:DataRange>
@@ -102,11 +102,10 @@
     <solution>
       <Solutions rdf:ID="Solutions_2">
         <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >•	При хранении на своем полигоне - штраф 2 млрд рублей</solutionsValue>
+        >При хранении на своем полигоне - штраф 2 млрд рублей</solutionsValue>
+        <solutionsValue xml:lang="ru">В случае отказа от штрафа - вызов в суд</solutionsValue>
         <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >•	В случае отказа от штрафа - вызов в суд</solutionsValue>
-        <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >•	Для утилизации можно воспользоваться услугами «Инжиниринговая компания "ПРОМЫШЛЕННАЯ ИННОВАЦИЯ"»</solutionsValue>
+        >Для утилизации можно воспользоваться услугами «Инжиниринговая компания "ПРОМЫШЛЕННАЯ ИННОВАЦИЯ"»</solutionsValue>
       </Solutions>
     </solution>
     <danger>
@@ -207,11 +206,11 @@
     <solution>
       <Solutions rdf:ID="Solutions_4">
         <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >•	Механическая деструкция + стерилизация</solutionsValue>
+        >Механическая деструкция + стерилизация</solutionsValue>
         <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >•	Высокотемпературное сжигание (инсинерация)</solutionsValue>
+        >Высокотемпературное сжигание (инсинерация)</solutionsValue>
         <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >•	ООО "БИОТЕРМ"</solutionsValue>
+        >ООО "БИОТЕРМ"</solutionsValue>
       </Solutions>
     </solution>
     <types>
@@ -242,15 +241,15 @@
     <solution>
       <Solutions rdf:ID="Solutions_8">
         <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >•	Вывоз на полигон для переработки</solutionsValue>
+        >Вывоз на полигон для переработки</solutionsValue>
         <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >•	Сортировка, удаление других отходов</solutionsValue>
+        >Сортировка, удаление других отходов</solutionsValue>
         <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >•	Засыпать болотистые местности</solutionsValue>
+        >Засыпать болотистые местности</solutionsValue>
         <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >•	Строить временные дороги</solutionsValue>
+        >Строить временные дороги</solutionsValue>
         <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >•	Производить тяжелые марки бетона</solutionsValue>
+        >Производить тяжелые марки бетона</solutionsValue>
       </Solutions>
     </solution>
     <state rdf:resource="#as_3"/>
@@ -337,7 +336,7 @@
     <solution>
       <Solutions rdf:ID="Solutions_6">
         <solutionsValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >•	Перевод на газовое топливо</solutionsValue>
+        >Перевод на газовое топливо</solutionsValue>
       </Solutions>
     </solution>
     <state rdf:resource="#as_3"/>

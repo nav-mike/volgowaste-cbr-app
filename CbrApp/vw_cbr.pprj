@@ -1,4 +1,4 @@
-; Tue Dec 24 14:38:44 MSK 2013
+; Wed Dec 25 12:15:12 MSK 2013
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -6,13 +6,13 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[vw_cbr_ProjectKB_Class10078]
-		[vw_cbr_ProjectKB_Class10079]
-		[vw_cbr_ProjectKB_Class10080]
-		[vw_cbr_ProjectKB_Class10081]
-		[vw_cbr_ProjectKB_Class10082]
-		[vw_cbr_ProjectKB_Class10083]
-		[vw_cbr_ProjectKB_Class10084]))
+		[vw_cbr_ProjectKB_Class10062]
+		[vw_cbr_ProjectKB_Class10063]
+		[vw_cbr_ProjectKB_Class10064]
+		[vw_cbr_ProjectKB_Class10065]
+		[vw_cbr_ProjectKB_Class10066]
+		[vw_cbr_ProjectKB_Class10067]
+		[vw_cbr_ProjectKB_Class10068]))
 
 ([CLSES_TAB] of  Widget
 
@@ -758,9 +758,6 @@
 
 	(name "SwitchableClassDefinitionType")
 	(string_value "edu.stanford.smi.protegex.owl.ui.cls.PropertiesClassDefinitionWidget"))
-
-([KB_459567_Class0] of  Map
-)
 
 ([KB_465546_Instance_567] of  Widget
 
@@ -3009,6 +3006,9 @@
 	(property_list [KB_713803_Instance_981]))
 
 ([KB_713803_Instance_981] of  Property_List
+)
+
+([KB_715714_Class0] of  Map
 )
 
 ([KB_764103_Instance_545] of  Widget
@@ -5648,37 +5648,37 @@
 ([vw_cbr_ProjectKB_Class10] of  Property_List
 )
 
-([vw_cbr_ProjectKB_Class10078] of  String
+([vw_cbr_ProjectKB_Class10062] of  String
 
 	(name "http://www.w3.org/2002/07/owl#Class")
 	(string_value "%3ANAME"))
 
-([vw_cbr_ProjectKB_Class10079] of  String
+([vw_cbr_ProjectKB_Class10063] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([vw_cbr_ProjectKB_Class10080] of  String
+([vw_cbr_ProjectKB_Class10064] of  String
 
 	(name ":META-CLASS")
 	(string_value "%3ANAME"))
 
-([vw_cbr_ProjectKB_Class10081] of  String
+([vw_cbr_ProjectKB_Class10065] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))
 
-([vw_cbr_ProjectKB_Class10082] of  String
+([vw_cbr_ProjectKB_Class10066] of  String
 
 	(name "http://www.owl-ontologies.com/vw_cbr.owl#Solutions")
 	(string_value "http%3A%2F%2Fwww.owl-ontologies.com%2Fvw_cbr.owl%23solutionsValue"))
 
-([vw_cbr_ProjectKB_Class10083] of  String
+([vw_cbr_ProjectKB_Class10067] of  String
 
 	(name "http://www.w3.org/2002/07/owl#Thing")
 	(string_value "%3ANAME"))
 
-([vw_cbr_ProjectKB_Class10084] of  String
+([vw_cbr_ProjectKB_Class10068] of  String
 
 	(name "http://www.owl-ontologies.com/vw_cbr.owl#AggregateState")
 	(string_value "http%3A%2F%2Fwww.owl-ontologies.com%2Fvw_cbr.owl%23stateValue"))
