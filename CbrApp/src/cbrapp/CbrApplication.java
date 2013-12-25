@@ -129,32 +129,31 @@ public class CbrApplication implements StandardCBRApplication{
     private static NNConfig getSimilarityConfig() {
         NNConfig result = new NNConfig();
         Attribute attribute;
-        Double weight = new Double(1.0);
         
         // danger
         attribute = new Attribute("danger", CbrDescription.class);
         result.addMapping(attribute, new Equal());
-        result.setWeight(attribute, weight);
+        result.setWeight(attribute, new Double(0.7));
         
         // count
         attribute = new Attribute("count", CbrDescription.class);
         result.addMapping(attribute, new Equal());
-        result.setWeight(attribute, weight);
+        result.setWeight(attribute, new Double(0.3));
         
         // state
         attribute = new Attribute("state", CbrDescription.class);
         result.addMapping(attribute, new Equal());
-        result.setWeight(attribute, weight);
+        result.setWeight(attribute, new Double(0.5));
 
         // time
         attribute = new Attribute("time", CbrDescription.class);
         result.addMapping(attribute, new Equal());
-        result.setWeight(attribute, weight);
+        result.setWeight(attribute, new Double(0.1));
         
         // type
         attribute = new Attribute("types", CbrDescription.class);
         result.addMapping(attribute, new Equal());
-        result.setWeight(attribute, weight);
+        result.setWeight(attribute, new Double(1.0));
         
         return result;
     }
