@@ -39,6 +39,22 @@ public class AdaptationRules {
         private String time;
         /** Тип отходов. */
         private String type;
+        
+        /**
+         * Метод преобразования объекта в массив.
+         * @return Массив прецедента.
+         */
+        public String[] toStringArray() {
+            String[] result = new String[5];
+            
+            result[0] = this.count;
+            result[1] = this.danger;
+            result[2] = this.state;
+            result[3] = this.time;
+            result[4] = this.type;
+            
+            return result;
+        }
 
         /**
          * Метод преобразования объекта (прецедента) в json строку.
