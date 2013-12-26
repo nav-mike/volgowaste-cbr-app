@@ -37,6 +37,87 @@ public class AdaptationRules {
         private String time;
         /** Тип отходов. */
         private String type;
+
+        /**
+         * Метод изменения значения типа отходов.
+         * @param type Значение типа отходов.
+         */
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        /**
+         * Метод изменения значения времени разложения.
+         * @param time Значение времени разложения.
+         */
+        public void setTime(String time) {
+            this.time = time;
+        }
+
+        /**
+         * Метод изменения значения агрегатного состояния.
+         * @param state Значение агрегатного состояния.
+         */
+        public void setState(String state) {
+            this.state = state;
+        }
+
+        /**
+         * Метод изменения значения класса опасности.
+         * @param danger Значение класса опасности.
+         */
+        public void setDanger(String danger) {
+            this.danger = danger;
+        }
+
+        /**
+         * Метод изменения количества отходов.
+         * @param count Значение количества отходов.
+         */
+        public void setCount(String count) {
+            this.count = count;
+        }
+
+        /**
+         * Метод получения значения типа отходов.
+         * @return Значение типа отходов.
+         */
+        public String getType() {
+            return type;
+        }
+
+        /**
+         * Метод получения значения времени разложения.
+         * @return Значение времени разложения.
+         */
+        @Deprecated
+        public String getTime() {
+            return time;
+        }
+
+        /**
+         * Метод получения значения агрегатного состояния.
+         * @return Значение агрегатного состояния.
+         */
+        public String getState() {
+            return state;
+        }
+
+        /**
+         * Метод получения значения класса опасности.
+         * @return Значение класса опасности.
+         */
+        public String getDanger() {
+            return danger;
+        }
+
+        /**
+         * Метод получения значения количества отходов.
+         * @return Значение количества отходов.
+         */
+        public String getCount() {
+            return count;
+        }
         
         /**
          * Конструктор по умолчанию.
