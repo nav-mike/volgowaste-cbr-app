@@ -38,6 +38,27 @@ public class AdaptationRules {
         /** Тип отходов. */
         private String type;
         
+        /**
+         * Конструктор по умолчанию.
+         */
+        protected Case () {}
+
+        /**
+         * Конструктор с параметрами.
+         * @param count Количество отходов.
+         * @param danger Класс опасности.
+         * @param state Агрегатное состояние.
+         * @param time Время полного разложения.
+         * @param type Тип отходов.
+         */
+        public Case(String count, String danger, String state, String time, String type) {
+            this.count = count;
+            this.danger = danger;
+            this.state = state;
+            this.time = time;
+            this.type = type;
+        }
+        
     }
     
 }
