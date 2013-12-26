@@ -16,8 +16,10 @@ public class AdaptationRules {
      */
     public static String[] useRules (String[] values) {
         String[] result = new String[5];
+        Case c = new Case(values[0], values[1], values[2], values[3], values[4]);
         
-        return result;
+        System.out.println(c.toString());
+        return result = c.toStringArray();
     }
     
     /**
@@ -25,7 +27,7 @@ public class AdaptationRules {
      * @author M. Navrotskiy
      * @version 1.0
      */
-    public class Case {
+    public static class Case {
         
         /* Поля класса. */
         /** Количество отходов. */

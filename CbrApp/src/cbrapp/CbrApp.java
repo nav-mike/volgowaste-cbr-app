@@ -23,6 +23,8 @@ import jcolibri.exception.OntologyAccessException;
  * @author M. Navrotskiy
  */
 public class CbrApp {
+    
+    public static CbrSolution lastCase = null;
 
     /**
      * @param args the command line arguments
@@ -84,6 +86,7 @@ public class CbrApp {
             app.cycle(query);
             CBRCase c = app.result();
             CbrSolution cd = (CbrSolution) c.getSolution();
+            lastCase = cd;
             return result = cd.getResult().toString();
             
         } catch (ExecutionException | OntologyAccessException ex) {

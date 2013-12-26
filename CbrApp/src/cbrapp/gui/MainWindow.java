@@ -4,35 +4,27 @@ import cbrapp.ReadSolutions;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
-import com.hp.hpl.jena.ontology.OntResource;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
-import es.ucm.fdi.gaia.ontobridge.OntoBridge;
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import java.awt.event.MouseEvent;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import jcolibri.util.OntoBridgeSingleton;
 
 /**
  * Класс главного окна.
@@ -68,6 +60,8 @@ public class MainWindow extends JFrame {
     
     /** Кнопка запуска анализа. */
     private JButton runBtn = new JButton("Поиск");
+    /** Кнопка запуска процесса адаптации. */
+    private JButton adaptBtn = new JButton("Адаптировать");
     
     /** Пространство имен онтологии. */
     private String ns;
@@ -133,9 +127,14 @@ public class MainWindow extends JFrame {
         leftPanel.add(this.typeValues);
         leftPanel.add(this.runBtn);
         
-        GridLayout right = new GridLayout(1, 1);
+        GridLayout right = new GridLayout(2, 1);
         JPanel rightPanel = new JPanel(right);
         rightPanel.add(this.table);
+        this.adaptBtn.setEnabled(false);
+        JPanel rightInPanel = new JPanel(new BorderLayout());
+        this.adaptBtn.setSize(73, 27);
+        rightInPanel.add(this.adaptBtn, BorderLayout.SOUTH);
+        rightPanel.add(rightInPanel);
         
         this.add(leftPanel);
         this.add(rightPanel);
@@ -174,6 +173,8 @@ public class MainWindow extends JFrame {
                     DefaultTableModel model = (DefaultTableModel) table.getModel();
                     model.addRow(new Object[]{item});
                 }
+                
+                adaptBtn.setEnabled(true);
                 
             }
         });
