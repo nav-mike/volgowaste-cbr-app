@@ -28,7 +28,14 @@ public class ReadSolutions {
         while (it.hasNext()) {
             
             String item = it.next().toString();
-            result.add(item.substring(0, item.indexOf('^')));
+            
+            if (item.contains("^")) {
+                result.add(item.substring(0, item.indexOf('^')));
+            } else if (item.contains("@")) {
+                result.add(item.substring(0, item.indexOf("@")));
+            } else {
+                result.add(item);
+            }
         }
         
         return result;
