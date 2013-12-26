@@ -18,4 +18,26 @@ public class AdaptationRules {
         return result;
     }
     
+    /**
+     * Класс прецедента.
+     * @author M. Navrotskiy
+     * @version 1.0
+     */
+    public class Case {
+        
+        /* Поля класса. */
+        /** Количество отходов. */
+        private String count;
+        /** Класс опасности отходов. */
+        private String danger;
+        /** Агрегатное состояние отходов. */
+        private String state;
+        /** Время полного разложения отходов. */
+        @Deprecated
+        private String time;
+        /** Тип отходов. */
+        private String type;
+        
+    }
+    
 }
