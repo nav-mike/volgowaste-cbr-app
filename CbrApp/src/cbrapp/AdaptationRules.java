@@ -1,5 +1,7 @@
 package cbrapp;
 
+import com.google.gson.Gson;
+
 /**
  * Класс правил адаптации.
  * @author M. Navrotskiy.
@@ -37,6 +39,16 @@ public class AdaptationRules {
         private String time;
         /** Тип отходов. */
         private String type;
+
+        /**
+         * Метод преобразования объекта (прецедента) в json строку.
+         * @return json строка.
+         */
+        @Override
+        public String toString() {
+            Gson gson = new Gson();
+            return gson.toJson(this);
+        }
 
         /**
          * Метод изменения значения типа отходов.
