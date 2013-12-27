@@ -178,6 +178,14 @@ public class MainWindow extends JFrame {
                 
             }
         });
+        
+        this.adaptBtn.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("QWE");
+            }
+        });
     }
     
     private void initTable(String data[][], String[] col) {
