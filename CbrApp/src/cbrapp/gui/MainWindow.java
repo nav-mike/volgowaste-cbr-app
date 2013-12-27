@@ -170,9 +170,10 @@ public class MainWindow extends JFrame {
                 
                 cbrapp.CbrApp.writeResult(solutionsText);
                 
+                DefaultTableModel model = (DefaultTableModel) table.getModel();
+                model.setRowCount(0);
                 for (String item : solutionsText) {
                     
-                    DefaultTableModel model = (DefaultTableModel) table.getModel();
                     model.addRow(new Object[]{item});
                 }
                 
@@ -194,6 +195,17 @@ public class MainWindow extends JFrame {
                 values[4] = (String) typeValues.getSelectedItem();
                 
                 String[] result = AdaptationRules.useRules(values);
+                
+                ArrayList<String> solutionsText = ReadSolutions.getSolutionsText(cbrapp.CbrApp.cbr(values));
+                
+                cbrapp.CbrApp.writeResult(solutionsText);
+                
+                DefaultTableModel model = (DefaultTableModel) table.getModel();
+                model.setRowCount(0);
+                for (String item : solutionsText) {
+                    
+                    model.addRow(new Object[]{item});
+                }
             }
         });
     }
