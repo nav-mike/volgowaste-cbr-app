@@ -196,7 +196,7 @@ public class MainWindow extends JFrame {
                 
                 String[] result = AdaptationRules.useRules(values);
                 
-                ArrayList<String> solutionsText = ReadSolutions.getSolutionsText(cbrapp.CbrApp.cbr(values));
+                ArrayList<String> solutionsText = ReadSolutions.getSolutionsText(cbrapp.CbrApp.cbr(result));
                 
                 cbrapp.CbrApp.writeResult(solutionsText);
                 
