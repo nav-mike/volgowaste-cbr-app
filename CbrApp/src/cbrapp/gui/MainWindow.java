@@ -1,5 +1,7 @@
 package cbrapp.gui;
 
+import cbrapp.AdaptationRules;
+import cbrapp.ReadCase;
 import cbrapp.ReadSolutions;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
@@ -183,7 +185,7 @@ public class MainWindow extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("QWE");
+                String[] result = AdaptationRules.useRules(ReadCase.getParams(cbrapp.CbrApp.lastCase.getMainConcept().toString()));
             }
         });
     }
