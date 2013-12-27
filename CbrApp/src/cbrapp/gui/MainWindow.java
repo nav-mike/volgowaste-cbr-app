@@ -185,7 +185,15 @@ public class MainWindow extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                String[] result = AdaptationRules.useRules(ReadCase.getParams(cbrapp.CbrApp.lastCase.getMainConcept().toString()));
+                
+                String[] values = new String[5];
+                values[0] = (String) countValues.getSelectedItem();
+                values[1] = (String) classValues.getSelectedItem();
+                values[2] = (String) stateValues.getSelectedItem();
+                values[3] = "fdt_1";
+                values[4] = (String) typeValues.getSelectedItem();
+                
+                String[] result = AdaptationRules.useRules(values);
             }
         });
     }

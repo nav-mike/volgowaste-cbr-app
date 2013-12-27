@@ -17,9 +17,26 @@ public class AdaptationRules {
     public static String[] useRules (String[] values) {
         String[] result = new String[5];
         Case c = new Case(values[0], values[1], values[2], values[3], values[4]);
+        System.out.println(c.toString());
+        
+        rule8(c);
         
         System.out.println(c.toString());
         return result = c.toStringArray();
+    }
+    
+    /**
+     * Правило №8:
+     * ЕСЛИ тип = («Журналы» ИЛИ «Картонная_упаковка» ИЛИ «Книги» ИЛИ «Листовки») ТОГДА тип := «Макулатура»
+     * @param c Прецедент с параметрами.
+     */
+    private static void rule8 (Case c) {
+        
+        if (c.getType().equals("Журналы") || c.getType().equals("Картонная_упаковка") ||
+                c.getType().equals("Книги") || c.getType().equals("Листовки")) {
+            
+            c.setType("Макулатура");
+        }
     }
     
     /**
