@@ -143,7 +143,8 @@ public class AdaptationRules {
     
     /**
      * Правило №6:
-     * ЕСЛИ тип = («Отходы_асфальтобетона_и_асфальтобетонной_смеси» ИЛИ «Отходы_из_жироотделителей») ТОГДА количество := «от_1_до_5_млн»
+     * ЕСЛИ тип = («Отходы_асфальтобетона_и_асфальтобетонной_смеси» ИЛИ
+     * «Отходы_из_жироотделителей») ТОГДА количество := «от_1_до_5_млн»
      * @param c Прецедент.
      */
     private static void rule6 (Case c) {
@@ -176,7 +177,8 @@ public class AdaptationRules {
     
     /**
      * Правило №9:
-     * ЕСЛИ тип = («Журналы» ИЛИ «Картонная_упаковка» ИЛИ «Книги» ИЛИ «Листовки») ТОГДА класс опасности := «V_class»
+     * ЕСЛИ тип = («Журналы» ИЛИ «Картонная_упаковка» ИЛИ «Книги» ИЛИ «Листовки»)
+     * ТОГДА класс опасности := «V_class»
      * @param c Прецедент.
      */
     private static void rule9 (Case c) {
@@ -328,7 +330,8 @@ public class AdaptationRules {
          * @param time Время полного разложения.
          * @param type Тип отходов.
          */
-        public Case(String count, String danger, String state, String time, String type) {
+        public Case(String count, String danger, String state, String time, 
+                String type) {
             this.count = count;
             this.danger = danger;
             this.state = state;
