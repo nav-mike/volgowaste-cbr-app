@@ -1,7 +1,6 @@
 package cbrapp.gui;
 
 import cbrapp.AdaptationRules;
-import cbrapp.ReadCase;
 import cbrapp.ReadSolutions;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
@@ -37,36 +36,33 @@ public class MainWindow extends JFrame {
     
     /* Поля класса. */
     /** Выпадающий список количества. */
-    private JComboBox<String> countValues = new JComboBox<String>();
+    private JComboBox<String> countValues = new JComboBox<>();
     /** Выпадающий список класса опасности. */
-    private JComboBox<String> classValues = new JComboBox<String>();
+    private JComboBox<String> classValues = new JComboBox<>();
     /** Выпадающий список агрегатных состояний. */
-    private JComboBox<String> stateValues = new JComboBox<String>();
+    private JComboBox<String> stateValues = new JComboBox<>();
     /** Выпадающий список типа отходов. */
-    private JComboBox<String> typeValues = new JComboBox<String>();
+    private JComboBox<String> typeValues = new JComboBox<>();
     
     /** Подпись выпадающего списка количества. */
-    private JLabel countLabel = new JLabel("Количество отходов:");
+    private final JLabel countLabel = new JLabel("Количество отходов:");
     /** Подпись выпадающего списка классов опасности. */
-    private JLabel classLabel = new JLabel("Класс опасности:");
+    private final JLabel classLabel = new JLabel("Класс опасности:");
     /** Подпись выпадающего списка агрегатных состояний. */
-    private JLabel stateLabel = new JLabel("Агрегатное состояние:");
+    private final JLabel stateLabel = new JLabel("Агрегатное состояние:");
     /** Подпись типа отходов. */
-    private JLabel typeLabel = new JLabel("Тип отходов:");
+    private final JLabel typeLabel = new JLabel("Тип отходов:");
     
     /** Поле вывода списка рекомендаций. */
     private JTable table;
     
-    /** Подпись рекомендаций. */
-    private JLabel solutionsLabel = new JLabel("Рекомендации:");
-    
     /** Кнопка запуска анализа. */
-    private JButton runBtn = new JButton("Поиск");
+    private final JButton runBtn = new JButton("Поиск");
     /** Кнопка запуска процесса адаптации. */
     private JButton adaptBtn = new JButton("Адаптировать");
     
     /** Пространство имен онтологии. */
-    private String ns;
+    private final String ns;
   
     /**
      * Метод инициализации выпадающих списков.
@@ -77,7 +73,8 @@ public class MainWindow extends JFrame {
         try {
             Vector<String> result = new Vector();
             
-            OntModel model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
+            OntModel model = 
+                    ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
             model.read(new FileInputStream("vw_cbr.owl"), "");
             
             OntClass c = model.getOntClass(ns + ontoClass);
@@ -105,7 +102,8 @@ public class MainWindow extends JFrame {
      */
     public MainWindow(String ns) {
         super("CBR с адаптацией");
-        this.table = new JTable(new DefaultTableModel(new Object[]{"Column1"}, 0));
+        this.table = new JTable(
+                new DefaultTableModel(new Object[]{"Column1"}, 0));
         
         this.ns = ns;
         
@@ -166,7 +164,8 @@ public class MainWindow extends JFrame {
                 values[3] = "fdt_1";
                 values[4] = (String) typeValues.getSelectedItem();
                 
-                ArrayList<String> solutionsText = ReadSolutions.getSolutionsText(cbrapp.CbrApp.cbr(values));
+                ArrayList<String> solutionsText = 
+                        ReadSolutions.getSolutionsText(cbrapp.CbrApp.cbr(values));
                 
                 cbrapp.CbrApp.writeResult(solutionsText);
                 
@@ -196,7 +195,8 @@ public class MainWindow extends JFrame {
                 
                 String[] result = AdaptationRules.useRules(values);
                 
-                ArrayList<String> solutionsText = ReadSolutions.getSolutionsText(cbrapp.CbrApp.cbr(result));
+                ArrayList<String> solutionsText = 
+                        ReadSolutions.getSolutionsText(cbrapp.CbrApp.cbr(result));
                 
                 cbrapp.CbrApp.writeResult(solutionsText);
                 
@@ -208,10 +208,6 @@ public class MainWindow extends JFrame {
                 }
             }
         });
-    }
-    
-    private void initTable(String data[][], String[] col) {
-        System.out.println("qwe");
     }
     
 }

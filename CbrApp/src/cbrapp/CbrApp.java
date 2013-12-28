@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package cbrapp;
 
 import cbrapp.gui.MainWindow;
@@ -19,8 +13,9 @@ import jcolibri.exception.ExecutionException;
 import jcolibri.exception.OntologyAccessException;
 
 /**
- *
+ * Главный класс приложения.
  * @author M. Navrotskiy
+ * @version 1.0
  */
 public class CbrApp {
     
@@ -32,7 +27,8 @@ public class CbrApp {
     public static void main(String[] args) {
         
         if (args.length == 0) {
-            MainWindow mainWindow = new MainWindow("http://www.owl-ontologies.com/vw_cbr.owl#");
+            MainWindow mainWindow = 
+                    new MainWindow("http://www.owl-ontologies.com/vw_cbr.owl#");
         } else {
 
             CbrApplication app = new CbrApplication();
@@ -64,7 +60,7 @@ public class CbrApp {
     
     /**
      * Функция выполнения CBR.
-     * @param value Значение, введенное пользователем.
+     * @param values Значение, введенное пользователем.
      * @return Результат CBR анализа.
      */
     public static String cbr (String[] values) {

@@ -1,4 +1,3 @@
-
 package cbrapp;
 
 import com.google.gson.Gson;

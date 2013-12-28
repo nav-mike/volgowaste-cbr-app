@@ -1,5 +1,3 @@
-
-
 package cbrapp;
 
 import java.util.Collection;
@@ -13,12 +11,8 @@ import jcolibri.connector.OntologyConnector;
 import jcolibri.exception.ExecutionException;
 import jcolibri.method.retrieve.NNretrieval.NNConfig;
 import jcolibri.method.retrieve.NNretrieval.NNScoringMethod;
-import jcolibri.method.retrieve.NNretrieval.similarity.LocalSimilarityFunction;
 import jcolibri.method.retrieve.NNretrieval.similarity.global.Average;
-import jcolibri.method.retrieve.NNretrieval.similarity.local.EnumDistance;
 import jcolibri.method.retrieve.NNretrieval.similarity.local.Equal;
-import jcolibri.method.retrieve.NNretrieval.similarity.local.EqualsStringIgnoreCase;
-import jcolibri.method.retrieve.NNretrieval.similarity.local.ontology.OntDeepBasic;
 import jcolibri.method.retrieve.RetrievalResult;
 import jcolibri.method.retrieve.selection.SelectCases;
 import jcolibri.util.FileIO;
@@ -103,7 +97,8 @@ public class CbrApplication implements StandardCBRApplication{
         
         query = cbrq;
         
-        eval = NNScoringMethod.evaluateSimilarity(caseBase.getCases(), query, config);
+        eval = NNScoringMethod.evaluateSimilarity(caseBase.getCases(), query,
+                config);
         
         selectedCase = SelectCases.selectTopK(eval, 1);
         
